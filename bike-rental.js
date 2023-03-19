@@ -35,7 +35,7 @@ bikes.forEach((bike) => {
     selectedBike.PriceExtra = bikePriceExtra;
     selectedBike.imgURL = bikeImgURL;
 
-    // step2Heading.innerHTML = bikeType.;
+    step2Heading.innerHTML = selectedBike.type;
 
     const currentStep = document.querySelector(".tab.active");
     const nextStep = document.querySelector(
