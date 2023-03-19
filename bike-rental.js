@@ -5,18 +5,18 @@ const priceOne = document.querySelector(".step-1-price-1");
 const priceTwo = document.querySelector(".step-1-price-2");
 
 const form = {
-  currentStep:1,
-  steps: document.querySelectorAll('.tab'),
+  currentStep: 1,
+  steps: document.querySelectorAll(".tab"),
   // nextButtons: document.querySelectorAll('[id^="next"]'),
-  prevButtons: document.querySelectorAll('.prev-button'),
-  submitButton: document.getElementById('submit')
+  prevButtons: document.querySelectorAll(".prev-button"),
+  submitButton: document.getElementById("submit"),
 };
 
 const selectedBike = {
-  type:"",
-  priceOneDay:"",
-  PriceExtra:"",
-  imgURL:""
+  type: "",
+  priceOneDay: "",
+  PriceExtra: "",
+  imgURL: "",
 };
 
 const bikes = document.querySelectorAll(".main-bike-link");
@@ -35,16 +35,18 @@ bikes.forEach((bike) => {
     selectedBike.PriceExtra = bikePriceExtra;
     selectedBike.imgURL = bikeImgURL;
 
-    step2Heading.innerHTML = selectedBike.type;
+    // step2Heading.innerHTML = bikeType.;
 
-    const currentStep = document.querySelector('.tab.active');
-    const nextStep = document.querySelector(`.tab[data-step="${form.currentStep + 1}"]`);
+    const currentStep = document.querySelector(".tab.active");
+    const nextStep = document.querySelector(
+      `.tab[data-step="${form.currentStep + 1}"]`,
+    );
 
-    currentStep.classList.remove('active');
-    currentStep.classList.add('hidden');
+    currentStep.classList.remove("active");
+    currentStep.classList.add("hidden");
 
-    nextStep.classList.remove('hidden');
-    nextStep.classList.add('active');
+    nextStep.classList.remove("hidden");
+    nextStep.classList.add("active");
 
     form.currentStep++;
 
@@ -52,37 +54,40 @@ bikes.forEach((bike) => {
   });
 });
 
+const nextButton = document.getElementById("next");
 
-const nextButton = document.getElementById('next');
-
-nextButton.addEventListener('click', (event) =>{
+nextButton.addEventListener("click", (event) => {
   event.preventDefault();
 
-  const currentStep = document.querySelector('.tab.active');
-  const nextStep = document.querySelector(`.tab[data-step="${form.currentStep + 1}"]`);
+  const currentStep = document.querySelector(".tab.active");
+  const nextStep = document.querySelector(
+    `.tab[data-step="${form.currentStep + 1}"]`,
+  );
 
-  currentStep.classList.remove('active');
-  currentStep.classList.add('hidden');
+  currentStep.classList.remove("active");
+  currentStep.classList.add("hidden");
 
-  nextStep.classList.remove('hidden');
-  nextStep.classList.add('active');
+  nextStep.classList.remove("hidden");
+  nextStep.classList.add("active");
 
   form.currentStep++;
 });
 
-form.prevButtons.forEach(button =>{
-  button.addEventListener('click', (event)=>{
+form.prevButtons.forEach((button) => {
+  button.addEventListener("click", (event) => {
     event.preventDefault();
 
-    const currentStep = document.querySelector('.tab.active');
-    const nextStep = document.querySelector(`.tab[data-step="${form.currentStep - 1}"]`);
+    const currentStep = document.querySelector(".tab.active");
+    const nextStep = document.querySelector(
+      `.tab[data-step="${form.currentStep - 1}"]`,
+    );
 
-    currentStep.classList.remove('active');
-    currentStep.classList.add('hidden');
-  
-    nextStep.classList.remove('hidden');
-    nextStep.classList.add('active');
-  
+    currentStep.classList.remove("active");
+    currentStep.classList.add("hidden");
+
+    nextStep.classList.remove("hidden");
+    nextStep.classList.add("active");
+
     form.currentStep--;
-  })
-})
+  });
+});
