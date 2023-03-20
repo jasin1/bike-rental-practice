@@ -3,9 +3,13 @@ console.log("here we go!!");
 //--------------- Dom Elements ---------------------------------//
 
 const step2Heading = document.querySelector(".new-selected-heading");
+const step3Heading = document.querySelector(".finale-selected-heading");
+
 const priceOne = document.querySelector(".step-1-price-1");
 const priceTwo = document.querySelector(".step-1-price-2");
 const stepTwoImg = document.querySelector(".step-2-img");
+const stepThreeImg = document.querySelector(".step-3-img");
+
 
 const inputDate = document.getElementById("input-date");
 const inputTime = document.getElementById("input-time");
@@ -77,6 +81,9 @@ nextButton.addEventListener("click", (event) => {
     `.tab[data-step="${form.currentStep + 1}"]`,
   );
 
+  step3Heading.innerHTML = selectedBike.type;
+  stepThreeImg.src = selectedBike.imgURL;
+
   currentStep.classList.remove("active");
   currentStep.classList.add("hidden");
 
@@ -105,5 +112,21 @@ form.prevButtons.forEach((button) => {
   });
 });
 
+//--------------- add-ons ---------------------//
+const check1 = document.getElementById("check1");
+const check2 = document.getElementById("check2");
+const check3 = document.getElementById("check3");
+
+const checks = [check1, check2, check3];
 
 //--------------- flatPickr ---------------------//
+
+const openingTimes = {
+  Monday: { open: "14:00", close: "17:45" },
+  Tuesday: { open: "10:00", close: "17:45" },
+  Wednesday: { open: "10:00", close: "17:45" },
+  Thursday: { open: "10:00", close: "17:45" },
+  Friday: { open: "15:00", close: "17:45" },
+  Saturday: { open: "10:00", close: "16:45" },
+  Sunday: { open: "", close: "" },
+};
