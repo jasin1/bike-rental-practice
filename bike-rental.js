@@ -3,6 +3,7 @@ console.log("here we go!!");
 const step2Heading = document.querySelector(".new-selected-heading");
 const priceOne = document.querySelector(".step-1-price-1");
 const priceTwo = document.querySelector(".step-1-price-2");
+const stepTwoImg = document.querySelector(".step-2-img");
 
 const form = {
   currentStep: 1,
@@ -38,6 +39,7 @@ bikes.forEach((bike) => {
     step2Heading.innerHTML = selectedBike.type;
     priceOne.innerHTML = selectedBike.priceOneDay;
     priceTwo.innerHTML = selectedBike.PriceExtra;
+    stepTwoImg.src = selectedBike.imgURL;
 
     const currentStep = document.querySelector(".tab.active");
     const nextStep = document.querySelector(
