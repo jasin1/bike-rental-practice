@@ -1,5 +1,7 @@
 console.log("here we go!!");
 
+//--------------- Dom Elements ---------------------------------//
+
 const step2Heading = document.querySelector(".new-selected-heading");
 const priceOne = document.querySelector(".step-1-price-1");
 const priceTwo = document.querySelector(".step-1-price-2");
@@ -15,6 +17,8 @@ const form = {
   prevButtons: document.querySelectorAll(".prev-button"),
   submitButton: document.getElementById("submit"),
 };
+
+//--------------- Bike selection ---------------------//
 
 const selectedBike = {
   type: "",
@@ -61,6 +65,8 @@ bikes.forEach((bike) => {
   });
 });
 
+//--------------- Next & Prev button ---------------------//
+
 const nextButton = document.getElementById("next");
 
 nextButton.addEventListener("click", (event) => {
@@ -98,3 +104,6 @@ form.prevButtons.forEach((button) => {
     form.currentStep--;
   });
 });
+
+
+//--------------- flatPickr ---------------------//
