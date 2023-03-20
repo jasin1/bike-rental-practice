@@ -5,6 +5,9 @@ const priceOne = document.querySelector(".step-1-price-1");
 const priceTwo = document.querySelector(".step-1-price-2");
 const stepTwoImg = document.querySelector(".step-2-img");
 
+const inputDate = document.getElementById("input-date");
+const inputTime = document.getElementById("input-time");
+
 const form = {
   currentStep: 1,
   steps: document.querySelectorAll(".tab"),
