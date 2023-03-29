@@ -11,8 +11,7 @@ const stepTwoImg = document.querySelector(".step-2-img");
 const stepThreeImg = document.querySelector(".step-3-img");
 
 
-const inputDate = document.getElementById("input-date");
-const inputTime = document.getElementById("input-time");
+
 
 const form = {
   currentStep: 1,
@@ -119,7 +118,18 @@ const check3 = document.getElementById("check3");
 
 const checks = [check1, check2, check3];
 
-//--------------- flatPickr ---------------------//
+//--------------- flatPickr + calculations ---------------------//
+
+const inputDate = document.getElementById("input-date");
+const inputTime = document.getElementById("input-time");
+const durationDays = document.getElementById("days");
+
+const check1 = document.getElementById("check1");
+const check2 = document.getElementById("check2");
+const check3 = document.getElementById("check3");
+
+const totalPrice1 = document.querySelector(".total-price-calc");
+
 
 const openingTimes = {
   Monday: { open: "14:00", close: "17:45" },
@@ -130,3 +140,4 @@ const openingTimes = {
   Saturday: { open: "10:00", close: "16:45" },
   Sunday: { open: "", close: "" },
 };
+
