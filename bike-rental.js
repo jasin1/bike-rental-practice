@@ -155,3 +155,32 @@ const fp = flatpickr("#input-date", {
     populateTimeSlots(pickupTimeSelect, times);
   },
 });
+
+function calculateTotalPrice(){
+  const days = durationDays.value;
+  const basePrice = Number(selectedBike.priceOneDay);
+  const extraPrice = Number(selectedBike.PriceExtra);
+
+  let totalPrice = basePrice;
+
+  if(days > 1){
+    totalPrice += extraPrice * (days -1);
+  }
+
+  checks.forEach((check)=>{
+    if(check.checked){
+      totalPrice += Number(check.getAttribute("data-price"));
+    }
+  });
+
+  totalPrice1.innerHTML = totalPrice;
+
+}
+
+durationDays.addEventListener("change", calculateTotalPrice);
+
+checks.forEach((check)=>{
+  check.addEventListener("change", calculateTotalPrice);
+});
+
+calculateTotalPrice();
