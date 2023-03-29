@@ -10,9 +10,6 @@ const priceTwo = document.querySelector(".step-1-price-2");
 const stepTwoImg = document.querySelector(".step-2-img");
 const stepThreeImg = document.querySelector(".step-3-img");
 
-
-
-
 const form = {
   currentStep: 1,
   steps: document.querySelectorAll(".tab"),
@@ -124,12 +121,8 @@ const inputDate = document.getElementById("input-date");
 const inputTime = document.getElementById("input-time");
 const durationDays = document.getElementById("days");
 
-const check1 = document.getElementById("check1");
-const check2 = document.getElementById("check2");
-const check3 = document.getElementById("check3");
 
 const totalPrice1 = document.querySelector(".total-price-calc");
-
 
 const openingTimes = {
   Monday: { open: "14:00", close: "17:45" },
@@ -141,8 +134,7 @@ const openingTimes = {
   Sunday: { open: "", close: "" },
 };
 
-
-const fp = flatpickr(inputDate,{
+const fp = flatpickr(inputDate, {
   minDate: "today",
   altInput: true,
   altFormat: "M j, Y",
@@ -152,12 +144,14 @@ const fp = flatpickr(inputDate,{
       return date.getDay() === 0 || date.getDay() === 7;
     },
   ],
-  
-  onchange: function(selectedDates, dateStr, instance){
-    const dayOfWeek = selectedDates[0].toLocaleDateString("en-US",{weekday: "long"});
+
+  onchange: function (selectedDates, dateStr, instance) {
+    const dayOfWeek = selectedDates[0].toLocaleDateString("en-US", {
+      weekday: "long",
+    });
     const openingTime = openingTimes[dayOfWeek].open;
     const closingTime = openingTimes[dayOfWeek].close;
     const times = generateTimeSlots(openingTime, closingTime, 30);
     populateTimeSlots(pickupTimeSelect, times);
-  }
+  },
 });
