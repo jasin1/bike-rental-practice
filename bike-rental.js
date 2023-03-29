@@ -141,3 +141,23 @@ const openingTimes = {
   Sunday: { open: "", close: "" },
 };
 
+
+const fp = flatpickr(inputDate,{
+  minDate: "today",
+  altInput: true,
+  altFormat: "M j, Y",
+  dateFormat: "d-m-Y",
+  disable: [
+    function (date) {
+      return date.getDay() === 0 || date.getDay() === 7;
+    },
+  ],
+  
+  onchange: function(selectedDates, dateStr, instance){
+    const dayOfWeek = selectedDates[0].toLocaleDateString("en-US",{weekday: "long"});
+    const openingTime = openingTimes[dayOfWeek].open;
+    const closingTime = openingTimes[dayOfWeek].close;
+    const times = generateTimeSlots(openingTime, closingTime, 30);
+    populateTimeSlots(pickupTimeSelect, times);
+  }
+});
