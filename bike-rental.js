@@ -134,7 +134,7 @@ const openingTimes = {
   Sunday: { open: "", close: "" },
 };
 
-const fp = flatpickr(inputDate, {
+const fp = flatpickr("#input-date", {
   minDate: "today",
   altInput: true,
   altFormat: "M j, Y",
