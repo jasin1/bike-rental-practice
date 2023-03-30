@@ -126,10 +126,6 @@ const totalPrice1 = document.querySelector(".total-price-calc");
 
 
 
-
-
-
-
 const fp = flatpickr("#input-date", {
   minDate: "today",
   altInput: true,
@@ -194,7 +190,8 @@ const openingTimes = {
 
 function updateAvailableTimes(selectedDate) {
   // Get the selected day of the week
-  const selectedDay = getDayOfWeek(selectedDate);
+  const selectedDay = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][selectedDate.getDay()];
+
 
   // Get the opening and closing times for the selected day
   const openingTime = openingTimes[selectedDay].open;
