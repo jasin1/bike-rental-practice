@@ -225,40 +225,18 @@ function updateAvailableTimes(selectedDate) {
     startTime = new Date(startTime.getTime() + timeInterval * 60000);
   }
 
-  // Update the available times dropdown with the new options
-  const availableTimesDropdown = document.getElementById("available-times");
-  availableTimesDropdown.innerHTML = "";
+  // Clear out any previously generated options
+  while (inputTime.firstChild) {
+    inputTime.removeChild(inputTime.firstChild);
+  }
 
+  // Generate a new set of options for the dropdown
   availableTimes.forEach((time) => {
     const option = document.createElement("option");
     option.text = time;
     option.value = time;
-    availableTimesDropdown.add(option);
+    inputTime.appendChild(option);
   });
 }
 
-function formatTime(date) {
-  let hours = date.getHours();
-  let minutes = date.getMinutes();
-  const ampm = hours >= 12 ? "PM" : "AM";
-  hours %= 12;
-  hours = hours ? hours : 12; // the hour '0' should be '12'
-  minutes = minutes < 10 ? `0${minutes}` : minutes;
-  const strTime = `${hours}:${minutes} ${ampm}`;
-  return strTime;
-}
 
-function getDayOfWeek(date) {
-  const dayOfWeek = new Date(date).getDay();
-  return isNaN(dayOfWeek)
-    ? null
-    : [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-      ][dayOfWeek];
-}
