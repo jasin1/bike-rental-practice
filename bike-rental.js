@@ -124,15 +124,11 @@ const durationDays = document.getElementById("days");
 
 const totalPrice1 = document.querySelector(".total-price-calc");
 
-const openingTimes = {
-  Monday: { open: "14:00", close: "17:45" },
-  Tuesday: { open: "10:00", close: "17:45" },
-  Wednesday: { open: "10:00", close: "17:45" },
-  Thursday: { open: "10:00", close: "17:45" },
-  Friday: { open: "15:00", close: "17:45" },
-  Saturday: { open: "10:00", close: "16:45" },
-  Sunday: { open: "", close: "" },
-};
+
+
+
+
+
 
 const fp = flatpickr("#input-date", {
   minDate: "today",
@@ -184,3 +180,85 @@ checks.forEach((check)=>{
 });
 
 calculateTotalPrice();
+
+//------------ calculating opening times ----------//
+const openingTimes = {
+  Monday: { open: "14:00", close: "17:45" },
+  Tuesday: { open: "10:00", close: "17:45" },
+  Wednesday: { open: "10:00", close: "17:45" },
+  Thursday: { open: "10:00", close: "17:45" },
+  Friday: { open: "15:00", close: "17:45" },
+  Saturday: { open: "10:00", close: "16:45" },
+  Sunday: { open: "", close: "" },
+};
+
+function updateAvailableTimes(selectedDate) {
+  // Get the selected day of the week
+  const selectedDay = getDayOfWeek(selectedDate);
+
+  // Get the opening and closing times for the selected day
+  const openingTime = openingTimes[selectedDay].open;
+  const closingTime = openingTimes[selectedDay].close;
+
+  // Convert opening and closing times to date objects
+  const openingTimeObj = new Date(`2000-01-01T${openingTime}`);
+  const closingTimeObj = new Date(`2000-01-01T${closingTime}`);
+
+  // Create an array of available times
+  const availableTimes = [];
+
+  // Set the time interval to 30 minutes
+  const timeInterval = 30;
+
+  // Set the start time to the opening time
+  let startTime = openingTimeObj;
+
+  // Loop through all possible times
+  while (startTime < closingTimeObj) {
+    // Check if the current time is at least 30 minutes from now
+    if (startTime > new Date()) {
+      // Add the current time to the available times array
+      availableTimes.push(formatTime(startTime));
+    }
+
+    // Increment the start time by the time interval
+    startTime = new Date(startTime.getTime() + timeInterval * 60000);
+  }
+
+  // Update the available times dropdown with the new options
+  const availableTimesDropdown = document.getElementById("available-times");
+  availableTimesDropdown.innerHTML = "";
+
+  availableTimes.forEach((time) => {
+    const option = document.createElement("option");
+    option.text = time;
+    option.value = time;
+    availableTimesDropdown.add(option);
+  });
+}
+
+function formatTime(date) {
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  const ampm = hours >= 12 ? "PM" : "AM";
+  hours %= 12;
+  hours = hours ? hours : 12; // the hour '0' should be '12'
+  minutes = minutes < 10 ? `0${minutes}` : minutes;
+  const strTime = `${hours}:${minutes} ${ampm}`;
+  return strTime;
+}
+
+function getDayOfWeek(date) {
+  const dayOfWeek = new Date(date).getDay();
+  return isNaN(dayOfWeek)
+    ? null
+    : [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ][dayOfWeek];
+}
