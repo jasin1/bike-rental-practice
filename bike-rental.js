@@ -272,9 +272,6 @@ const fp = flatpickr("#input-date", {
   ],
 
   onChange: function (selectedDates, dateStr, instance) {
-    console.log("flatpickr change");
-    //const selectedDate = selectedDates[0];
-    //updateAvailableTimes(selectedDate);
     const dayOfWeek = selectedDates[0].toLocaleDateString("en-US", {
       weekday: "long",
     });
@@ -282,7 +279,5 @@ const fp = flatpickr("#input-date", {
     const closingTime = openingTimes[dayOfWeek].close;
     const times = generateTimeSlots(openingTime, closingTime, 30);
     populateTimeSlots(inputTime, times);
-    console.log("populate times " + populateTimeSlots);
-    console.log("these times "+times);
   },
 });
