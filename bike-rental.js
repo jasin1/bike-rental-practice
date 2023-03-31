@@ -264,6 +264,7 @@ const fp = flatpickr("#input-date", {
   ],
 
   onchange: function (selectedDates, dateStr, instance) {
+    console.log("flatpickr change");
     //const selectedDate = selectedDates[0];
     //updateAvailableTimes(selectedDate);
     const dayOfWeek = selectedDates[0].toLocaleDateString("en-US", {
