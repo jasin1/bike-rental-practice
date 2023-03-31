@@ -189,6 +189,7 @@ const openingTimes = {
 };
 
 function updateAvailableTimes(selectedDate) {
+  console.log("updte times being called");
   // Get the selected day of the week
   const selectedDay = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][selectedDate.getDay()];
 
@@ -227,6 +228,8 @@ function updateAvailableTimes(selectedDate) {
     inputTime.removeChild(inputTime.firstChild);
   }
 
+  console.log(availableTimes);
+
   // Generate a new set of options for the dropdown
   availableTimes.forEach((time) => {
     const option = document.createElement("option");
@@ -235,5 +238,7 @@ function updateAvailableTimes(selectedDate) {
     inputTime.appendChild(option);
   });
 }
+
+
 
 
