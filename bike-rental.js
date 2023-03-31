@@ -121,10 +121,7 @@ const inputDate = document.getElementById("input-date");
 const inputTime = document.getElementById("input-time");
 const durationDays = document.getElementById("days");
 
-
 const totalPrice1 = document.querySelector(".total-price-calc");
-
-
 
 const fp = flatpickr("#input-date", {
   minDate: "today",
@@ -148,30 +145,29 @@ const fp = flatpickr("#input-date", {
   },
 });
 
-function calculateTotalPrice(){
+function calculateTotalPrice() {
   const days = durationDays.value;
   const basePrice = Number(selectedBike.priceOneDay);
   const extraPrice = Number(selectedBike.PriceExtra);
 
   let totalPrice = basePrice;
 
-  if(days > 1){
-    totalPrice += extraPrice * (days -1);
+  if (days > 1) {
+    totalPrice += extraPrice * (days - 1);
   }
 
-  checks.forEach((check)=>{
-    if(check.checked){
+  checks.forEach((check) => {
+    if (check.checked) {
       totalPrice += Number(check.getAttribute("data-price"));
     }
   });
 
   totalPrice1.innerHTML = totalPrice;
-
 }
 
 durationDays.addEventListener("change", calculateTotalPrice);
 
-checks.forEach((check)=>{
+checks.forEach((check) => {
   check.addEventListener("change", calculateTotalPrice);
 });
 
@@ -191,8 +187,15 @@ const openingTimes = {
 function updateAvailableTimes(selectedDate) {
   console.log("updte times being called");
   // Get the selected day of the week
-  const selectedDay = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][selectedDate.getDay()];
-
+  const selectedDay = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ][selectedDate.getDay()];
 
   // Get the opening and closing times for the selected day
   const openingTime = openingTimes[selectedDay].open;
@@ -239,6 +242,4 @@ function updateAvailableTimes(selectedDate) {
   });
 }
 
-
-
-
+updateAvailableTimes(inputDate.valueAsDate);
