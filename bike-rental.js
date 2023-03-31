@@ -167,6 +167,14 @@ const openingTimes = {
 
 //-----Generate Time slots---------//
 
+function formatTime(date) {
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  hours = hours < 10 ? "0" + hours : hours;
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  return hours + ":" + minutes;
+}
+
 function generateTimeSlots(start, end, interval) {
   const times = [];
   let current = new Date(`2000-01-01T${start}`);
