@@ -273,5 +273,6 @@ const fp = flatpickr("#input-date", {
     const closingTime = openingTimes[dayOfWeek].close;
     const times = generateTimeSlots(openingTime, closingTime, 30);
     populateTimeSlots(inputTime, times);
+    console.log(populateTimeSlots);
   },
 });
