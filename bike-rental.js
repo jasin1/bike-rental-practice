@@ -164,6 +164,33 @@ const openingTimes = {
   Sunday: { open: "", close: "" },
 };
 
+
+//-----Generate Time slots---------//
+
+function generateTimeSlots(start, end, interval) {
+  const times = [];
+  let current = new Date(`2000-01-01T${start}`);
+
+  while (current <= new Date(`2000-01-01T${end}`)) {
+    times.push(formatTime(current));
+    current = new Date(current.getTime() + interval * 60000);
+  }
+
+  return times;
+}
+
+function populateTimeSlots(select, times) {
+  select.innerHTML = "";
+
+  times.forEach((time) => {
+    const option = document.createElement("option");
+    option.text = time;
+    option.value = time;
+    select.appendChild(option);
+  });
+}
+
+/*
 function updateAvailableTimes(selectedDate) {
   console.log("updte times being called");
   // Get the selected day of the week
@@ -221,6 +248,9 @@ function updateAvailableTimes(selectedDate) {
     inputTime.appendChild(option);
   });
 }
+*/
+
+//------------ flatpickr -------//
 
 const fp = flatpickr("#input-date", {
   minDate: "today",
@@ -234,14 +264,14 @@ const fp = flatpickr("#input-date", {
   ],
 
   onchange: function (selectedDates, dateStr, instance) {
-    const selectedDate = selectedDates[0];
-    updateAvailableTimes(selectedDate);
+    //const selectedDate = selectedDates[0];
+    //updateAvailableTimes(selectedDate);
     const dayOfWeek = selectedDates[0].toLocaleDateString("en-US", {
       weekday: "long",
     });
     const openingTime = openingTimes[dayOfWeek].open;
     const closingTime = openingTimes[dayOfWeek].close;
     const times = generateTimeSlots(openingTime, closingTime, 30);
-    populateTimeSlots(pickupTimeSelect, times);
+    populateTimeSlots(inputTime, times);
   },
 });
