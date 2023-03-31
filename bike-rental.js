@@ -61,7 +61,7 @@ bikes.forEach((bike) => {
 
     form.currentStep++;
 
-    console.log(selectedBike);
+    //console.log(selectedBike);
   });
 });
 
