@@ -198,65 +198,7 @@ function populateTimeSlots(select, times) {
   });
 }
 
-/*
-function updateAvailableTimes(selectedDate) {
-  console.log("updte times being called");
-  // Get the selected day of the week
-  const selectedDay = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ][selectedDate.getDay()];
 
-  // Get the opening and closing times for the selected day
-  const openingTime = openingTimes[selectedDay].open;
-  const closingTime = openingTimes[selectedDay].close;
-
-  // Convert opening and closing times to date objects
-  const openingTimeObj = new Date(`2000-01-01T${openingTime}`);
-  const closingTimeObj = new Date(`2000-01-01T${closingTime}`);
-
-  // Create an array of available times
-  const availableTimes = [];
-
-  // Set the time interval to 30 minutes
-  const timeInterval = 30;
-
-  // Set the start time to the opening time
-  let startTime = openingTimeObj;
-
-  // Loop through all possible times
-  while (startTime < closingTimeObj) {
-    // Check if the current time is at least 30 minutes from now
-    if (startTime > new Date()) {
-      // Add the current time to the available times array
-      availableTimes.push(formatTime(startTime));
-    }
-
-    // Increment the start time by the time interval
-    startTime = new Date(startTime.getTime() + timeInterval * 60000);
-  }
-
-  // Clear out any previously generated options
-  while (inputTime.firstChild) {
-    inputTime.removeChild(inputTime.firstChild);
-  }
-
-  console.log(availableTimes);
-
-  // Generate a new set of options for the dropdown
-  availableTimes.forEach((time) => {
-    const option = document.createElement("option");
-    option.text = time;
-    option.value = time;
-    inputTime.appendChild(option);
-  });
-}
-*/
 
 //------------ flatpickr -------//
 
