@@ -263,7 +263,7 @@ const fp = flatpickr("#input-date", {
     },
   ],
 
-  onchange: function (selectedDates, dateStr, instance) {
+  onChange: function (selectedDates, dateStr, instance) {
     console.log("flatpickr change");
     //const selectedDate = selectedDates[0];
     //updateAvailableTimes(selectedDate);
