@@ -16,13 +16,17 @@ const counterNum = document.querySelector(".count-num");
 const countElement = document.querySelector(".counter-amount");
 
 const durationDays = document.getElementById("days");
-function disableDurationDays(){durationDays.disabled = true;}
-function enableDurationDays(){durationDays.disabled = false;}
+function disableDurationDays() {
+  durationDays.disabled = true;
+}
+function enableDurationDays() {
+  durationDays.disabled = false;
+}
 
 const inputDate = document.getElementById("input-date");
 
 const inputTime = document.getElementById("input-time");
-function resetInputTime(){
+function resetInputTime() {
   inputTime.selectedIndex = 0;
   inputTime.options[0].text = "Select a time";
   inputTime.style.backgroundColor = "#f3f3f3";
@@ -39,8 +43,6 @@ const check2 = document.getElementById("check2");
 const check3 = document.getElementById("check3");
 
 const checks = [check1, check2, check3];
-
-
 
 const form = {
   currentStep: 1,
@@ -71,16 +73,17 @@ bikes.forEach((bike) => {
     resetInputTime();
     counterMin.style.pointerEvents = "none";
     counterPlus.style.pointerEvents = "none";
-    countElement.style.backgroundColor="#f3f3f3";
-    checks.forEach((check)=>{
+    countElement.style.backgroundColor = "#f3f3f3";
+    checks.forEach((check) => {
       check.disabled = true;
-    })
+    });
 
-    checks.forEach((check) =>{
+    checks.forEach((check) => {
       check.checked = false;
     });
 
     nextButton.disabled = true;
+    nextButton.style.opacity = 0.5;
 
     counterNum.innerHTML = 1;
 
@@ -95,7 +98,7 @@ bikes.forEach((bike) => {
     selectedBike.priceOneDay = bikePriceOneDay;
     selectedBike.PriceExtra = bikePriceExtra;
     selectedBike.imgURL = bikeImgURL;
- 
+
     durationDays.value = durationDays.options[0].value;
     durationDays.options[0].selected = true;
 
@@ -123,8 +126,6 @@ bikes.forEach((bike) => {
 });
 
 //--------------- Next & Prev button ---------------------//
-
-
 
 nextButton.addEventListener("click", (event) => {
   event.preventDefault();
@@ -199,10 +200,9 @@ function calculateTotalPrice() {
   }
 
   checks.forEach((check) => {
-    if (check.checked) { 
+    if (check.checked) {
       totalPrice += Number(check.getAttribute("data-price"));
-      //totalPrice *= bikeCount; 
-      console.log("check");
+      //totalPrice *= bikeCount;
     }
   });
 
@@ -290,12 +290,12 @@ const fp = flatpickr("#input-date", {
     counterPlus.style.pointerEvents = "auto";
     inputTime.removeAttribute("disabled");
     inputTime.style.backgroundColor = "white";
-    countElement.style.backgroundColor="white";
+    countElement.style.backgroundColor = "white";
     nextButton.disabled = false;
+    nextButton.style.opacity = 1;
     enableDurationDays();
-    checks.forEach((check)=>{
+    checks.forEach((check) => {
       check.removeAttribute("disabled");
-    })
-
+    });
   },
 });
