@@ -24,6 +24,7 @@ const inputTime = document.getElementById("input-time");
 function resetInputTime(){
   inputTime.selectedIndex = 0;
   inputTime.options[0].text = "Select a time";
+  inputTime.style.backgroundColor = "#f3f3f3";
 }
 
 
