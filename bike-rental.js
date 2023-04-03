@@ -14,6 +14,14 @@ const counterMin = document.querySelector(".counter-minus");
 const counterPlus = document.querySelector(".counter-plus");
 const counterNum = document.querySelector(".count-num");
 
+const durationDays = document.getElementById("days");
+
+//--------------- add-ons ---------------------//
+const check1 = document.getElementById("check1");
+const check2 = document.getElementById("check2");
+const check3 = document.getElementById("check3");
+
+const checks = [check1, check2, check3];
 const form = {
   currentStep: 1,
   steps: document.querySelectorAll(".tab"),
@@ -48,6 +56,13 @@ bikes.forEach((bike) => {
     selectedBike.priceOneDay = bikePriceOneDay;
     selectedBike.PriceExtra = bikePriceExtra;
     selectedBike.imgURL = bikeImgURL;
+
+    durationDays.value = durationDays.options[0].value;
+    durationDays.options[0].selected = true;
+
+    checks.forEach((check) =>{
+      check.checked = false;
+    });
 
     step2Heading.innerHTML = selectedBike.type;
     priceOne.innerHTML = selectedBike.priceOneDay;
@@ -114,18 +129,13 @@ form.prevButtons.forEach((button) => {
   });
 });
 
-//--------------- add-ons ---------------------//
-const check1 = document.getElementById("check1");
-const check2 = document.getElementById("check2");
-const check3 = document.getElementById("check3");
 
-const checks = [check1, check2, check3];
 
 //-------------------------- calculations ---------------------//
 
 const inputDate = document.getElementById("input-date");
 const inputTime = document.getElementById("input-time");
-const durationDays = document.getElementById("days");
+
 
 const totalPrice1 = document.querySelector(".total-price-calc");
 const totalPrice2 = document.querySelector(".total-price-calc-2");
