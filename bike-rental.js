@@ -16,12 +16,21 @@ const counterNum = document.querySelector(".count-num");
 
 const durationDays = document.getElementById("days");
 
+const inputDate = document.getElementById("input-date");
+const inputTime = document.getElementById("input-time");
+
+
+const totalPrice1 = document.querySelector(".total-price-calc");
+const totalPrice2 = document.querySelector(".total-price-calc-2");
+
 //--------------- add-ons ---------------------//
 const check1 = document.getElementById("check1");
 const check2 = document.getElementById("check2");
 const check3 = document.getElementById("check3");
 
 const checks = [check1, check2, check3];
+
+
 const form = {
   currentStep: 1,
   steps: document.querySelectorAll(".tab"),
@@ -133,12 +142,7 @@ form.prevButtons.forEach((button) => {
 
 //-------------------------- calculations ---------------------//
 
-const inputDate = document.getElementById("input-date");
-const inputTime = document.getElementById("input-time");
 
-
-const totalPrice1 = document.querySelector(".total-price-calc");
-const totalPrice2 = document.querySelector(".total-price-calc-2");
 
 //------------ Bike amount counter ----------//
 
@@ -174,7 +178,8 @@ function calculateTotalPrice() {
   checks.forEach((check) => {
     if (check.checked) { 
       totalPrice += Number(check.getAttribute("data-price"));
-      totalPrice *= bikeCount; 
+      //totalPrice *= bikeCount; 
+      console.log("check");
     }
   });
 
