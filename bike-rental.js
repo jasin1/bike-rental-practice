@@ -10,6 +10,10 @@ const priceTwo = document.querySelector(".step-1-price-2");
 const stepTwoImg = document.querySelector(".step-2-img");
 const stepThreeImg = document.querySelector(".step-3-img");
 
+const counterMin = document.querySelector(".counter-minus");
+const counterPlus = document.querySelector(".counter-plus");
+const counterNum = document.querySelector(".count-num");
+
 const form = {
   currentStep: 1,
   steps: document.querySelectorAll(".tab"),
@@ -125,8 +129,6 @@ const durationDays = document.getElementById("days");
 
 const totalPrice1 = document.querySelector(".total-price-calc");
 
-
-
 function calculateTotalPrice() {
   const days = durationDays.value;
   const basePrice = Number(selectedBike.priceOneDay);
@@ -166,7 +168,6 @@ const openingTimes = {
   Sunday: { open: "", close: "" },
 };
 
-
 //-----Generate Time slots---------//
 
 function formatTime(date) {
@@ -199,8 +200,6 @@ function populateTimeSlots(select, times) {
     select.appendChild(option);
   });
 }
-
-
 
 //------------ flatpickr -------//
 
