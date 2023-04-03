@@ -33,6 +33,8 @@ bikes.forEach((bike) => {
   bike.addEventListener("click", (event) => {
     event.preventDefault();
 
+    totalPrice1.innerHTML = 0;
+
     const bikeType = bike.getAttribute("data-bike-type");
     const bikePriceOneDay = bike.getAttribute("data-price-1-day");
     const bikePriceExtra = bike.getAttribute("data-price-extra");
