@@ -283,6 +283,7 @@ const fp = flatpickr("#input-date", {
 
     // inputTime checks durationDays
     inputTime.removeAttribute("disabled");
+    inputTime.style.backgroundColor = "white";
     enableDurationDays();
     checks.forEach((check)=>{
       check.removeAttribute("disabled");
