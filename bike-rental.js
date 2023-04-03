@@ -16,6 +16,14 @@ const counterNum = document.querySelector(".count-num");
 
 const durationDays = document.getElementById("days");
 
+function disableDurationDays(){
+  durationDays.disabled = true;
+}
+
+function enableDurationDays(){
+  durationDays.disabled = false;
+}
+
 const inputDate = document.getElementById("input-date");
 const inputTime = document.getElementById("input-time");
 
@@ -29,6 +37,7 @@ const check2 = document.getElementById("check2");
 const check3 = document.getElementById("check3");
 
 const checks = [check1, check2, check3];
+
 
 
 const form = {
@@ -53,6 +62,14 @@ const bikes = document.querySelectorAll(".main-bike-link");
 bikes.forEach((bike) => {
   bike.addEventListener("click", (event) => {
     event.preventDefault();
+
+    // Disable checkboxes, time and durationDays
+    disableDurationDays();
+    inputTime.disabled = true;
+    checks.forEach((check)=>{
+      check.disabled = true;
+    })
+
 
     totalPrice1.innerHTML = 0;
 
@@ -261,5 +278,13 @@ const fp = flatpickr("#input-date", {
     const closingTime = openingTimes[dayOfWeek].close;
     const times = generateTimeSlots(openingTime, closingTime, 30);
     populateTimeSlots(inputTime, times);
+
+    // inputTime checks durationDays
+    inputTime.removeAttribute("disabled");
+    enableDurationDays();
+    checks.forEach((check)=>{
+      check.removeAttribute("disabled");
+    })
+
   },
 });
