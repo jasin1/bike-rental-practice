@@ -65,7 +65,7 @@ bikes.forEach((bike) => {
   bike.addEventListener("click", (event) => {
     event.preventDefault();
 
-    // Disable checkboxes, time and durationDays
+    // Resets elements on tab 2
     disableDurationDays();
     inputTime.disabled = true;
     resetInputTime();
@@ -81,6 +81,8 @@ bikes.forEach((bike) => {
     });
 
     nextButton.disabled = true;
+
+    counterNum.innerHTML = 1;
 
     //------------------------------------------
 
