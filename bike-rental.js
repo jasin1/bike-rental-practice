@@ -129,28 +129,25 @@ const durationDays = document.getElementById("days");
 
 const totalPrice1 = document.querySelector(".total-price-calc");
 
-
 //------------ Bike amount counter ----------//
 
-let bikeCount =1;
+let bikeCount = 1;
 
-function updateBikeCount(value){
+function updateBikeCount(value) {
   bikeCount += value;
   counterNum.innerHTML = bikeCount;
   calculateTotalPrice();
 }
 
-counterMin.addEventListener("click",()=>{
-  if(bikeCount > 1){
+counterMin.addEventListener("click", () => {
+  if (bikeCount > 1) {
     updateBikeCount(-1);
   }
 });
 
-counterPlus.addEventListener("click",()=>{
+counterPlus.addEventListener("click", () => {
   updateBikeCount(1);
-})
-
-
+});
 
 function calculateTotalPrice() {
   const days = durationDays.value;
@@ -164,8 +161,9 @@ function calculateTotalPrice() {
   }
 
   checks.forEach((check) => {
-    if (check.checked) {
+    if (check.checked) { 
       totalPrice += Number(check.getAttribute("data-price"));
+      totalPrice *= bikeCount; 
     }
   });
 
@@ -180,10 +178,6 @@ checks.forEach((check) => {
 });
 
 calculateTotalPrice();
-
-
-
-
 
 //------------ calculating opening times ----------//
 const openingTimes = {
