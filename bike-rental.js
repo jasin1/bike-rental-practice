@@ -3,12 +3,12 @@ console.log("here we go!!");
 //--------------- Dom Elements ---------------------------------//
 
 const step2Heading = document.querySelector(".new-selected-heading");
-const step3Heading = document.querySelector(".finale-selected-heading");
+
 
 const priceOne = document.querySelector(".step-1-price-1");
 const priceTwo = document.querySelector(".step-1-price-2");
 const stepTwoImg = document.querySelector(".step-2-img");
-const stepThreeImg = document.querySelector(".step-3-img");
+
 
 const counterMin = document.querySelector(".counter-minus");
 const counterPlus = document.querySelector(".counter-plus");
@@ -35,7 +35,7 @@ function resetInputTime() {
 const nextButton = document.getElementById("next");
 
 const totalPrice1 = document.querySelector(".total-price-calc");
-const totalPrice2 = document.querySelector(".total-price-calc-2");
+
 
 //--------------- add-ons ---------------------//
 const check1 = document.getElementById("check1");
@@ -51,6 +51,16 @@ const form = {
   prevButtons: document.querySelectorAll(".prev-button"),
   submitButton: document.getElementById("submit"),
 };
+
+// ------- tab 3 elements -------- //
+const totalPrice2 = document.querySelector(".total-price-calc-2");
+const step3Heading = document.querySelector(".finale-selected-heading");
+const stepThreeImg = document.querySelector(".step-3-img");
+const finaleDate = document.querySelector(".step-2-date");
+const finaleTime = document.querySelector(".step-2-time");
+const finaleDuration = document.querySelector(".step-2-duration");
+const finaleBikeAmount = document.querySelector(".step-2-total-bikes");
+
 
 //--------------- Bike selection ---------------------//
 
@@ -299,3 +309,6 @@ const fp = flatpickr("#input-date", {
     });
   },
 });
+
+
+//--------------- Tab 3 fill  ----------------------- //
