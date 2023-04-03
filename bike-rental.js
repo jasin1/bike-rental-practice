@@ -28,7 +28,7 @@ function resetInputTime(){
   inputTime.style.backgroundColor = "#f3f3f3";
 }
 
-
+const nextButton = document.getElementById("next");
 
 const totalPrice1 = document.querySelector(".total-price-calc");
 const totalPrice2 = document.querySelector(".total-price-calc-2");
@@ -80,6 +80,8 @@ bikes.forEach((bike) => {
       check.checked = false;
     });
 
+    nextButton.disabled = true;
+
     //------------------------------------------
 
     const bikeType = bike.getAttribute("data-bike-type");
@@ -120,7 +122,7 @@ bikes.forEach((bike) => {
 
 //--------------- Next & Prev button ---------------------//
 
-const nextButton = document.getElementById("next");
+
 
 nextButton.addEventListener("click", (event) => {
   event.preventDefault();
@@ -287,6 +289,7 @@ const fp = flatpickr("#input-date", {
     inputTime.removeAttribute("disabled");
     inputTime.style.backgroundColor = "white";
     countElement.style.backgroundColor="white";
+    nextButton.disabled = false;
     enableDurationDays();
     checks.forEach((check)=>{
       check.removeAttribute("disabled");
