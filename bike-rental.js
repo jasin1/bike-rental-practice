@@ -15,17 +15,17 @@ const counterPlus = document.querySelector(".counter-plus");
 const counterNum = document.querySelector(".count-num");
 
 const durationDays = document.getElementById("days");
-
-function disableDurationDays(){
-  durationDays.disabled = true;
-}
-
-function enableDurationDays(){
-  durationDays.disabled = false;
-}
+function disableDurationDays(){durationDays.disabled = true;}
+function enableDurationDays(){durationDays.disabled = false;}
 
 const inputDate = document.getElementById("input-date");
+
 const inputTime = document.getElementById("input-time");
+function resetInputTime(){
+  inputTime.selectedIndex = 0;
+  inputTime.options[0].text = "Select a time";
+}
+
 
 
 const totalPrice1 = document.querySelector(".total-price-calc");
@@ -66,10 +66,11 @@ bikes.forEach((bike) => {
     // Disable checkboxes, time and durationDays
     disableDurationDays();
     inputTime.disabled = true;
+    resetInputTime();
     checks.forEach((check)=>{
       check.disabled = true;
     })
-
+    //------------------------------------------
 
     totalPrice1.innerHTML = 0;
 
