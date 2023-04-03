@@ -82,8 +82,6 @@ bikes.forEach((bike) => {
 
     //------------------------------------------
 
-    totalPrice1.innerHTML = 0;
-
     const bikeType = bike.getAttribute("data-bike-type");
     const bikePriceOneDay = bike.getAttribute("data-price-1-day");
     const bikePriceExtra = bike.getAttribute("data-price-extra");
@@ -93,6 +91,8 @@ bikes.forEach((bike) => {
     selectedBike.priceOneDay = bikePriceOneDay;
     selectedBike.PriceExtra = bikePriceExtra;
     selectedBike.imgURL = bikeImgURL;
+
+    totalPrice1.innerHTML = bikePriceOneDay;
 
     durationDays.value = durationDays.options[0].value;
     durationDays.options[0].selected = true;
@@ -286,7 +286,7 @@ const fp = flatpickr("#input-date", {
     const times = generateTimeSlots(openingTime, closingTime, 30);
     populateTimeSlots(inputTime, times);
 
-    // inputTime checks durationDays and bike amount
+    //enabling  inputTime checks durationDays and bike amount
     counterMin.disabled = false;
     counterPlus.disabled = false;
     inputTime.removeAttribute("disabled");
