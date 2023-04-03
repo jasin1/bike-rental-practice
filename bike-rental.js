@@ -13,6 +13,7 @@ const stepThreeImg = document.querySelector(".step-3-img");
 const counterMin = document.querySelector(".counter-minus");
 const counterPlus = document.querySelector(".counter-plus");
 const counterNum = document.querySelector(".count-num");
+const countElement = document.querySelector(".counter-amount");
 
 const durationDays = document.getElementById("days");
 function disableDurationDays(){durationDays.disabled = true;}
@@ -68,9 +69,17 @@ bikes.forEach((bike) => {
     disableDurationDays();
     inputTime.disabled = true;
     resetInputTime();
+    counterMin.disabled = true;
+    counterPlus.disabled = true;
+    countElement.style.backgroundColor="#f3f3f3";
     checks.forEach((check)=>{
       check.disabled = true;
     })
+
+    checks.forEach((check) =>{
+      check.checked = false;
+    });
+
     //------------------------------------------
 
     totalPrice1.innerHTML = 0;
@@ -87,10 +96,6 @@ bikes.forEach((bike) => {
 
     durationDays.value = durationDays.options[0].value;
     durationDays.options[0].selected = true;
-
-    checks.forEach((check) =>{
-      check.checked = false;
-    });
 
     step2Heading.innerHTML = selectedBike.type;
     priceOne.innerHTML = selectedBike.priceOneDay;
@@ -281,9 +286,12 @@ const fp = flatpickr("#input-date", {
     const times = generateTimeSlots(openingTime, closingTime, 30);
     populateTimeSlots(inputTime, times);
 
-    // inputTime checks durationDays
+    // inputTime checks durationDays and bike amount
+    counterMin.disabled = false;
+    counterPlus.disabled = false;
     inputTime.removeAttribute("disabled");
     inputTime.style.backgroundColor = "white";
+    countElement.style.backgroundColor="white";
     enableDurationDays();
     checks.forEach((check)=>{
       check.removeAttribute("disabled");
