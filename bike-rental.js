@@ -92,7 +92,7 @@ bikes.forEach((bike) => {
     selectedBike.PriceExtra = bikePriceExtra;
     selectedBike.imgURL = bikeImgURL;
 
-    totalPrice1.innerHTML = bikePriceOneDay;
+  
 
     durationDays.value = durationDays.options[0].value;
     durationDays.options[0].selected = true;
@@ -101,7 +101,8 @@ bikes.forEach((bike) => {
     priceOne.innerHTML = selectedBike.priceOneDay;
     priceTwo.innerHTML = selectedBike.PriceExtra;
     stepTwoImg.src = selectedBike.imgURL;
-
+    totalPrice1.innerHTML = selectedBike.priceOneDay;
+    
     const currentStep = document.querySelector(".tab.active");
     const nextStep = document.querySelector(
       `.tab[data-step="${form.currentStep + 1}"]`,
