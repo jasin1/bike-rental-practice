@@ -121,13 +121,14 @@ const check3 = document.getElementById("check3");
 
 const checks = [check1, check2, check3];
 
-//--------------- flatPickr + calculations ---------------------//
+//-------------------------- calculations ---------------------//
 
 const inputDate = document.getElementById("input-date");
 const inputTime = document.getElementById("input-time");
 const durationDays = document.getElementById("days");
 
 const totalPrice1 = document.querySelector(".total-price-calc");
+const totalPrice2 = document.querySelector(".total-price-calc-2");
 
 //------------ Bike amount counter ----------//
 
@@ -169,6 +170,7 @@ function calculateTotalPrice() {
 
   totalPrice *= bikeCount;
   totalPrice1.innerHTML = totalPrice;
+  totalPrice2.innerHTML = totalPrice1.innerHTML;
 }
 
 durationDays.addEventListener("change", calculateTotalPrice);
