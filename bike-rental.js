@@ -199,13 +199,19 @@ function calculateTotalPrice() {
       // hide and show in tab 3
       const itemName = check.getAttribute('data-item');
       const matchingAddon = addonElements.find((addon)=> addon.id === itemName);
-      matchingAddon.style.display = 'block';
-      console.log(itemName + "block");
+      if(matchingAddon){
+        matchingAddon.style.display = 'block';
+        console.log(itemName + "block"); 
+      }
+
     } else{
       const itemName = check.getAttribute('data-item');
       const matchingAddon = addonElements.find((addon)=> addon.id === itemName);
-      matchingAddon.style.display = 'none';
-      console.log(itemName + "none");
+      if(matchingAddon){
+        matchingAddon.style.display = 'none';
+        console.log(itemName + "none");   
+      }
+
     }
 
   });
