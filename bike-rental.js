@@ -94,6 +94,7 @@ bikes.forEach((bike) => {
 
     nextButton.disabled = true;
     nextButton.style.opacity = 0.5;
+    nextButton.style.pointerEvents = "none";
 
     counterNum.innerHTML = 1;
 
@@ -303,6 +304,7 @@ const fp = flatpickr("#input-date", {
     countElement.style.backgroundColor = "white";
     nextButton.disabled = false;
     nextButton.style.opacity = 1;
+
     enableDurationDays();
     checks.forEach((check) => {
       check.removeAttribute("disabled");
