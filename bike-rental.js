@@ -296,6 +296,12 @@ const fp = flatpickr("#input-date", {
 
 //--------------- Tab 3 fill  ----------------------- //
 
+durationDays.addEventListener("change", function(){
+  const selectedOptionText = durationDays.options[durationDays.selectedIndex];
+  finaleDuration.textContent = selectedOptionText;
+});
+
+
 nextButton.addEventListener("click", (event) => {
   event.preventDefault();
 
@@ -304,12 +310,11 @@ nextButton.addEventListener("click", (event) => {
     `.tab[data-step="${form.currentStep + 1}"]`,
   );
 
-  const selectedDurationOption = durationDays.options[durationDays.selectedIndex];
-  const selectedDurationText = selectedDurationOption.textContent;
+
 
   step3Heading.innerHTML = selectedBike.type;
   stepThreeImg.src = selectedBike.imgURL;
-  finaleDuration.textContent = selectedDurationText;
+  finaleDuration.textContent = durationDays.options[durationDays.selectedIndex].textContent;
   finaleBikeAmount.textContent = counterNum.textContent;
   finaleDate.textContent = inputDate.value;
 
