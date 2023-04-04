@@ -198,14 +198,14 @@ function calculateTotalPrice() {
       const item = check.dataset.item;
       const itemDiv = document.getElementById(item);
       if(check.checked){
-        itemDiv.style.display = "block";
+        console.log(itemDiv.id);
+        //itemDiv.style.display = "block";
         selectedItems.push(item);
       }else{
-        itemDiv.style.display = "none";
+        //itemDiv.style.display = "none";
         selectedItems.splice(selectedItems.indexOf(item),1);
       }
-    });
-
+    }); 
   });
 
   totalPrice *= bikeCount;
@@ -342,4 +342,5 @@ nextButton.addEventListener("click", (event) => {
   console.log("pickup date is " + inputDate.value);
   console.log("pickup time is " + finaleTime.textContent);
   console.log(counterNum.textContent);
+  console.log("accessories "+ selectedItems);
 });
