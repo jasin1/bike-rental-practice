@@ -30,6 +30,8 @@ function resetInputTime() {
   inputTime.style.backgroundColor = "#f3f3f3";
 }
 
+const selectedTime = inputTime.value;
+
 const nextButton = document.getElementById("next");
 
 const totalPrice1 = document.querySelector(".total-price-calc");
@@ -310,4 +312,6 @@ nextButton.addEventListener("click", (event) => {
   nextStep.classList.add("active");
 
   form.currentStep++;
+
+  console.log(selectedTime);
 });
