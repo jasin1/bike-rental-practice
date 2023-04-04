@@ -201,7 +201,7 @@ function calculateTotalPrice() {
       const matchingAddon = addonElements.find((addon)=> addon.id === itemName);
       if(matchingAddon){
         matchingAddon.style.display = 'block';
-        console.log(itemName + "block"); 
+        selectedItems.push(itemName);
       }
 
     } else{
@@ -209,10 +209,15 @@ function calculateTotalPrice() {
       const matchingAddon = addonElements.find((addon)=> addon.id === itemName);
       if(matchingAddon){
         matchingAddon.style.display = 'none';
-        console.log(itemName + "none");   
+        const index = selectedItems.indexOf(itemName);
+        if(index !== -1){
+          selectedItems.splice(index, 1);
+        }
       }
 
     }
+
+    console.log(selectedItems);
 
   });
 
