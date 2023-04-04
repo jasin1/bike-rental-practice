@@ -315,5 +315,5 @@ nextButton.addEventListener("click", (event) => {
 
   console.log("selected time is "+ selectedTime);
   console.log("duration is "+ durationDays.value);
-  console.log("pickup time is "+ inputDate);
+  console.log("pickup time is "+ inputDate.value);
 });
