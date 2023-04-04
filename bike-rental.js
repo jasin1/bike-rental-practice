@@ -196,14 +196,16 @@ function calculateTotalPrice() {
 
     check.addEventListener("change",()=>{
       const item = check.dataset.item;
-      const itemDiv = document.getElementById(item);
+      const itemDiv = document.getElementById(`#${item}.addon-selected`);
       if(check.checked){
         console.log(itemDiv);
-        //itemDiv.style.display = "block";
         selectedItems.push(item);
+        itemDiv.classList.remove('addon-hidden');
+        itemDiv.classList.add('addon-block');
       }else{
-        //itemDiv.style.display = "none";
         selectedItems.splice(selectedItems.indexOf(item),1);
+        itemDiv.classList.remove('addon-block');
+        itemDiv.classList.add('addon-hidden');
       }
     }); 
   });
