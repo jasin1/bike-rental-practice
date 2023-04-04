@@ -58,7 +58,11 @@ const finaleTime = document.querySelector(".step-2-time");
 const finaleDuration = document.querySelector(".step-2-duration");
 const finaleBikeAmount = document.querySelector(".step-2-total-bikes");
 
-//totalPrice2
+const addonHelmet = document.getElementById("helmet");
+const addonPhone = document.getElementById("phone-mount");
+const addonBag = document.getElementById("bag");
+
+const addonElements = [addonHelmet, addonPhone, addonBag];
 
 //--------------- Bike selection ---------------------//
 
@@ -192,22 +196,18 @@ function calculateTotalPrice() {
   checks.forEach((check) => {
     if (check.checked) {
       totalPrice += Number(check.getAttribute("data-price"));
+      // hide and show in tab 3
+      const itemName = check.getAttribute('data-item');
+      const matchingAddon = addonElements.find((addon)=> addon.id === itemName);
+      matchingAddon.style.display = 'block';
+      console.log(itemName + "block");
+    } else{
+      const itemName = check.getAttribute('data-item');
+      const matchingAddon = addonElements.find((addon)=> addon.id === itemName);
+      matchingAddon.style.display = 'none';
+      console.log(itemName + "none");
     }
 
-    check.addEventListener("change",()=>{
-      const item = check.dataset.item;
-      // const itemDiv = document.getElementById(`#${item}.addon-selected`);
-      if(check.checked){
-        console.log(item);
-        selectedItems.push(item);
-        // itemDiv.classList.remove('addon-hidden');
-        // itemDiv.classList.add('addon-block');
-      }else{
-        selectedItems.splice(selectedItems.indexOf(item),1);
-        // itemDiv.classList.remove('addon-block');
-        // itemDiv.classList.add('addon-hidden');
-      }
-    }); 
   });
 
   totalPrice *= bikeCount;
