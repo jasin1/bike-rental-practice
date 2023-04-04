@@ -134,25 +134,6 @@ bikes.forEach((bike) => {
 
 //--------------- Next & Prev button ---------------------//
 
-nextButton.addEventListener("click", (event) => {
-  event.preventDefault();
-
-  const currentStep = document.querySelector(".tab.active");
-  const nextStep = document.querySelector(
-    `.tab[data-step="${form.currentStep + 1}"]`,
-  );
-
-  step3Heading.innerHTML = selectedBike.type;
-  stepThreeImg.src = selectedBike.imgURL;
-
-  currentStep.classList.remove("active");
-  currentStep.classList.add("hidden");
-
-  nextStep.classList.remove("hidden");
-  nextStep.classList.add("active");
-
-  form.currentStep++;
-});
 
 form.prevButtons.forEach((button) => {
   button.addEventListener("click", (event) => {
@@ -309,3 +290,24 @@ const fp = flatpickr("#input-date", {
 });
 
 //--------------- Tab 3 fill  ----------------------- //
+
+
+nextButton.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  const currentStep = document.querySelector(".tab.active");
+  const nextStep = document.querySelector(
+    `.tab[data-step="${form.currentStep + 1}"]`,
+  );
+
+  step3Heading.innerHTML = selectedBike.type;
+  stepThreeImg.src = selectedBike.imgURL;
+
+  currentStep.classList.remove("active");
+  currentStep.classList.add("hidden");
+
+  nextStep.classList.remove("hidden");
+  nextStep.classList.add("active");
+
+  form.currentStep++;
+});
