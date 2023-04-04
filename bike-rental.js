@@ -30,7 +30,7 @@ function resetInputTime() {
   inputTime.style.backgroundColor = "#f3f3f3";
 }
 
-const selectedTime = inputTime.value;
+
 
 const nextButton = document.getElementById("next");
 
@@ -253,6 +253,10 @@ function populateTimeSlots(select, times) {
   });
 }
 
+inputTime.addEventListener("change",()=>{
+  finaleTime.textContent = inputTime.value;
+});
+
 //------------ flatpickr -------//
 
 const fp = flatpickr("#input-date", {
@@ -274,6 +278,8 @@ const fp = flatpickr("#input-date", {
     const closingTime = openingTimes[dayOfWeek].close;
     const times = generateTimeSlots(openingTime, closingTime, 30);
     populateTimeSlots(inputTime, times);
+
+    finaleTime.textContent = inputTime.value;
 
     //enabling  inputTime checks durationDays and bike amount
     counterMin.style.pointerEvents = "auto";
@@ -313,7 +319,8 @@ nextButton.addEventListener("click", (event) => {
 
   form.currentStep++;
 
-  console.log("selected time is "+ selectedTime);
+
   console.log("duration is "+ durationDays.value);
   console.log("pickup time is "+ inputDate.value);
+  console.log("pickup time is " + finaleTime.textContent);
 });
