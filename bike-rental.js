@@ -313,5 +313,7 @@ nextButton.addEventListener("click", (event) => {
 
   form.currentStep++;
 
-  console.log(selectedTime);
+  console.log("selected time is "+ selectedTime);
+  console.log("duration is "+ durationDays.value);
+  console.log("pickup time is "+ inputDate);
 });
