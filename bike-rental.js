@@ -198,7 +198,7 @@ function calculateTotalPrice() {
       const item = check.dataset.item;
       const itemDiv = document.getElementById(item);
       if(check.checked){
-        console.log(itemDiv.id);
+        console.log(itemDiv);
         //itemDiv.style.display = "block";
         selectedItems.push(item);
       }else{
