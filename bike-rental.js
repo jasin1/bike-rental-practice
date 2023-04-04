@@ -202,7 +202,8 @@ function calculateTotalPrice() {
       if(matchingAddon){
         matchingAddon.style.display = 'block';
         if(!selectedItems.includes(itemName)){
-          selectedItems.push(itemName);          
+          selectedItems.push(itemName);
+          const itemsText = selectedItems.join(', ');          
         }
       }
 
