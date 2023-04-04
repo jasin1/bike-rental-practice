@@ -93,7 +93,6 @@ bikes.forEach((bike) => {
     nextButton.disabled = true;
     nextButton.style.opacity = 0.5;
     nextButton.style.pointerEvents = "none";
-    console.log("Is nextButton disabled " + nextButton.disabled);
     counterNum.innerHTML = 1;
 
     //------------------------------------------
@@ -192,7 +191,6 @@ function calculateTotalPrice() {
   checks.forEach((check) => {
     if (check.checked) {
       totalPrice += Number(check.getAttribute("data-price"));
-      //totalPrice *= bikeCount;
     }
   });
 
@@ -299,11 +297,10 @@ const fp = flatpickr("#input-date", {
 
 //--------------- Tab 3 fill  ----------------------- //
 
-durationDays.addEventListener("change", function(){
+durationDays.addEventListener("change", function () {
   const selectedOptionText = durationDays.options[durationDays.selectedIndex];
   finaleDuration.textContent = selectedOptionText;
 });
-
 
 nextButton.addEventListener("click", (event) => {
   event.preventDefault();
@@ -313,11 +310,10 @@ nextButton.addEventListener("click", (event) => {
     `.tab[data-step="${form.currentStep + 1}"]`,
   );
 
-
-
   step3Heading.innerHTML = selectedBike.type;
   stepThreeImg.src = selectedBike.imgURL;
-  finaleDuration.textContent = durationDays.options[durationDays.selectedIndex].textContent;
+  finaleDuration.textContent =
+    durationDays.options[durationDays.selectedIndex].textContent;
   finaleBikeAmount.textContent = counterNum.textContent;
   finaleDate.textContent = inputDate.value;
 
@@ -332,6 +328,4 @@ nextButton.addEventListener("click", (event) => {
   console.log("pickup date is " + inputDate.value);
   console.log("pickup time is " + finaleTime.textContent);
   console.log(counterNum.textContent);
-
-  //counterNum
 });
