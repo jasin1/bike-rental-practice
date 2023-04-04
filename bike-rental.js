@@ -58,6 +58,8 @@ const finaleTime = document.querySelector(".step-2-time");
 const finaleDuration = document.querySelector(".step-2-duration");
 const finaleBikeAmount = document.querySelector(".step-2-total-bikes");
 
+//totalPrice2
+
 //--------------- Bike selection ---------------------//
 
 const selectedBike = {
@@ -114,6 +116,7 @@ bikes.forEach((bike) => {
     priceTwo.innerHTML = selectedBike.PriceExtra;
     stepTwoImg.src = selectedBike.imgURL;
     totalPrice1.innerHTML = selectedBike.priceOneDay;
+    totalPrice2.innerHTML = selectedBike.priceOneDay;
 
     const currentStep = document.querySelector(".tab.active");
     const nextStep = document.querySelector(
