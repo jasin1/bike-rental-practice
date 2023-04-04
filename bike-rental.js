@@ -315,7 +315,7 @@ nextButton.addEventListener("click", (event) => {
 
   step3Heading.innerHTML = selectedBike.type;
   stepThreeImg.src = selectedBike.imgURL;
-  finaleDate.textContent = selectedDurationText;
+  finaleDuration.textContent = selectedDurationText;
 
   currentStep.classList.remove("active");
   currentStep.classList.add("hidden");
