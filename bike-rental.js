@@ -30,8 +30,6 @@ function resetInputTime() {
   inputTime.style.backgroundColor = "#f3f3f3";
 }
 
-
-
 const nextButton = document.getElementById("next");
 
 const totalPrice1 = document.querySelector(".total-price-calc");
@@ -136,7 +134,6 @@ bikes.forEach((bike) => {
 
 //--------------- Next & Prev button ---------------------//
 
-
 form.prevButtons.forEach((button) => {
   button.addEventListener("click", (event) => {
     event.preventDefault();
@@ -209,9 +206,6 @@ checks.forEach((check) => {
 
 calculateTotalPrice();
 
-const selectedDurationOption = durationDays.options[durationDays.selectedIndex];
-const selectedDurationText = selectedDurationOption.textContent;
-
 //------------ calculating opening times ----------//
 const openingTimes = {
   Monday: { open: "14:00", close: "17:45" },
@@ -256,7 +250,7 @@ function populateTimeSlots(select, times) {
   });
 }
 
-inputTime.addEventListener("change",()=>{
+inputTime.addEventListener("change", () => {
   finaleTime.textContent = inputTime.value;
 });
 
@@ -302,9 +296,6 @@ const fp = flatpickr("#input-date", {
 
 //--------------- Tab 3 fill  ----------------------- //
 
-
-
-
 nextButton.addEventListener("click", (event) => {
   event.preventDefault();
 
@@ -312,6 +303,9 @@ nextButton.addEventListener("click", (event) => {
   const nextStep = document.querySelector(
     `.tab[data-step="${form.currentStep + 1}"]`,
   );
+
+  const selectedDurationOption = durationDays.options[durationDays.selectedIndex];
+  const selectedDurationText = selectedDurationOption.textContent;
 
   step3Heading.innerHTML = selectedBike.type;
   stepThreeImg.src = selectedBike.imgURL;
@@ -327,11 +321,10 @@ nextButton.addEventListener("click", (event) => {
 
   form.currentStep++;
 
-
-  console.log("duration is "+ selectedDurationText);
-  console.log("pickup date is "+ inputDate.value);
+  console.log("duration is " + selectedDurationText);
+  console.log("pickup date is " + inputDate.value);
   console.log("pickup time is " + finaleTime.textContent);
   console.log(counterNum.textContent);
-  
+
   //counterNum
 });
