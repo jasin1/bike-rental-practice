@@ -317,6 +317,7 @@ nextButton.addEventListener("click", (event) => {
   stepThreeImg.src = selectedBike.imgURL;
   finaleDuration.textContent = selectedDurationText;
   finaleBikeAmount.textContent = counterNum.textContent;
+  finaleDate.textContent = inputDate.value;
 
   currentStep.classList.remove("active");
   currentStep.classList.add("hidden");
@@ -328,7 +329,7 @@ nextButton.addEventListener("click", (event) => {
 
 
   console.log("duration is "+ selectedDurationText);
-  console.log("pickup time is "+ inputDate.value);
+  console.log("pickup date is "+ inputDate.value);
   console.log("pickup time is " + finaleTime.textContent);
   console.log(counterNum.textContent);
   
