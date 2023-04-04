@@ -341,8 +341,7 @@ nextButton.addEventListener("click", (event) => {
 
   step3Heading.innerHTML = selectedBike.type;
   stepThreeImg.src = selectedBike.imgURL;
-  finaleDuration.textContent =
-    durationDays.options[durationDays.selectedIndex].textContent;
+  finaleDuration.textContent = durationDays.options[durationDays.selectedIndex].textContent;
   finaleBikeAmount.textContent = counterNum.textContent;
   finaleDate.textContent = inputDate.value;
 
@@ -359,4 +358,5 @@ nextButton.addEventListener("click", (event) => {
   console.log("Duration is " + finaleDuration.textContent);
   console.log("Number of bikes "+counterNum.textContent);
   console.log("accessories "+ selectedItems);
+  console.log("finale price is "+ totalPrice2.textContent);
 });
