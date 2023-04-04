@@ -217,7 +217,6 @@ function calculateTotalPrice() {
 
     }
 
-    console.log(selectedItems);
 
   });
 
