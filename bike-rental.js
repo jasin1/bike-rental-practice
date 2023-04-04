@@ -209,6 +209,9 @@ checks.forEach((check) => {
 
 calculateTotalPrice();
 
+const selectedDurationOption = durationDays.options[durationDays.selectedIndex];
+const selectedDurationText = selectedDurationOption.textContent;
+
 //------------ calculating opening times ----------//
 const openingTimes = {
   Monday: { open: "14:00", close: "17:45" },
@@ -300,6 +303,8 @@ const fp = flatpickr("#input-date", {
 //--------------- Tab 3 fill  ----------------------- //
 
 
+
+
 nextButton.addEventListener("click", (event) => {
   event.preventDefault();
 
@@ -310,6 +315,7 @@ nextButton.addEventListener("click", (event) => {
 
   step3Heading.innerHTML = selectedBike.type;
   stepThreeImg.src = selectedBike.imgURL;
+  finaleDate.textContent = selectedDurationText;
 
   currentStep.classList.remove("active");
   currentStep.classList.add("hidden");
@@ -320,7 +326,7 @@ nextButton.addEventListener("click", (event) => {
   form.currentStep++;
 
 
-  console.log("duration is "+ durationDays.value);
+  console.log("duration is "+ selectedDurationText);
   console.log("pickup time is "+ inputDate.value);
   console.log("pickup time is " + finaleTime.textContent);
 });
