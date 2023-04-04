@@ -160,6 +160,7 @@ form.prevButtons.forEach((button) => {
 //------------ Bike amount counter ----------//
 
 let bikeCount = 1;
+const selectedItems = [];
 
 function updateBikeCount(value) {
   bikeCount += value;
@@ -191,8 +192,20 @@ function calculateTotalPrice() {
   checks.forEach((check) => {
     if (check.checked) {
       totalPrice += Number(check.getAttribute("data-price"));
-      console.log(check.getAttribute("data-item"));
     }
+
+    check.addEventListener("change",()=>{
+      const item = check.dataset.item;
+      const itemDiv = document.getElementById(item);
+      if(check.checked){
+        itemDiv.style.display = "block";
+        selectedItems.push(item);
+      }else{
+        itemDiv.style.display = "none";
+        selectedItems.splice(selectedItems.indexOf(item),1);
+      }
+    });
+
   });
 
   totalPrice *= bikeCount;
