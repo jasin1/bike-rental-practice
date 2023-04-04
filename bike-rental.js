@@ -95,7 +95,7 @@ bikes.forEach((bike) => {
     nextButton.disabled = true;
     nextButton.style.opacity = 0.5;
     nextButton.style.pointerEvents = "none";
-
+    console.log("Is nextButton disabled " + nextButton.disabled);
     counterNum.innerHTML = 1;
 
     //------------------------------------------
