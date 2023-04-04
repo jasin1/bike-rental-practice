@@ -191,6 +191,7 @@ function calculateTotalPrice() {
   checks.forEach((check) => {
     if (check.checked) {
       totalPrice += Number(check.getAttribute("data-price"));
+      console.log(check.getAttribute("data-item"));
     }
   });
 
