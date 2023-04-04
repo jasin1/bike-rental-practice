@@ -329,4 +329,7 @@ nextButton.addEventListener("click", (event) => {
   console.log("duration is "+ selectedDurationText);
   console.log("pickup time is "+ inputDate.value);
   console.log("pickup time is " + finaleTime.textContent);
+  console.log(counterNum.textContent);
+  
+  //counterNum
 });
