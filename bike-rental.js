@@ -329,7 +329,6 @@ nextButton.addEventListener("click", (event) => {
 
   form.currentStep++;
 
-  console.log("duration is " + selectedDurationText);
   console.log("pickup date is " + inputDate.value);
   console.log("pickup time is " + finaleTime.textContent);
   console.log(counterNum.textContent);
