@@ -196,7 +196,30 @@ function calculateTotalPrice() {
   checks.forEach((check) => {
     if (check.checked) {
       totalPrice += Number(check.getAttribute("data-price"));
+      // hide and show in tab 3
+      const itemName = check.getAttribute('data-item');
+      const matchingAddon = addonElements.find((addon)=> addon.id === itemName);
+      if(matchingAddon){
+        matchingAddon.style.display = 'block';
+        if(!selectedItems.includes(itemName)){
+          selectedItems.push(itemName);          
+        }
+      }
+
+    } else{
+      const itemName = check.getAttribute('data-item');
+      const matchingAddon = addonElements.find((addon)=> addon.id === itemName);
+      if(matchingAddon){
+        matchingAddon.style.display = 'none';
+        const index = selectedItems.indexOf(itemName);
+        if(index !== -1){
+          selectedItems.splice(index, 1);
+        }
+      }
+
     }
+
+
   });
 
   totalPrice *= bikeCount;
@@ -208,29 +231,6 @@ durationDays.addEventListener("change", calculateTotalPrice);
 
 checks.forEach((check) => {
   check.addEventListener("change", calculateTotalPrice);
-});
-
-//---------------hide and show in tab 3
-
-checks.forEach((check) => {
-  if (check.checked) {
-    const itemName = check.getAttribute('data-item');
-    const matchingAddon = addonElements.find((addon)=> addon.id === itemName);
-    if(matchingAddon){
-      matchingAddon.style.display = 'block';
-      selectedItems.push(itemName);
-    }
-  } else{
-    const itemName = check.getAttribute('data-item');
-    const matchingAddon = addonElements.find((addon)=> addon.id === itemName);
-    if(matchingAddon){
-      matchingAddon.style.display = 'none';
-      const index = selectedItems.indexOf(itemName);
-      if(index !== -1){
-        selectedItems.splice(index, 1);
-      }
-    }
-  }
 });
 
 calculateTotalPrice();
@@ -356,5 +356,6 @@ nextButton.addEventListener("click", (event) => {
   console.log("pickup date is " + inputDate.value);
   console.log("pickup time is " + finaleTime.textContent);
   console.log(counterNum.textContent);
-  console.log("accessories " + selectedItems);
+  console.log("accessories "+ selectedItems);
+
 });
