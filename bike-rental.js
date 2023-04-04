@@ -4,11 +4,9 @@ console.log("here we go!!");
 
 const step2Heading = document.querySelector(".new-selected-heading");
 
-
 const priceOne = document.querySelector(".step-1-price-1");
 const priceTwo = document.querySelector(".step-1-price-2");
 const stepTwoImg = document.querySelector(".step-2-img");
-
 
 const counterMin = document.querySelector(".counter-minus");
 const counterPlus = document.querySelector(".counter-plus");
@@ -36,7 +34,6 @@ const nextButton = document.getElementById("next");
 
 const totalPrice1 = document.querySelector(".total-price-calc");
 
-
 //--------------- add-ons ---------------------//
 const check1 = document.getElementById("check1");
 const check2 = document.getElementById("check2");
@@ -60,7 +57,6 @@ const finaleDate = document.querySelector(".step-2-date");
 const finaleTime = document.querySelector(".step-2-time");
 const finaleDuration = document.querySelector(".step-2-duration");
 const finaleBikeAmount = document.querySelector(".step-2-total-bikes");
-
 
 //--------------- Bike selection ---------------------//
 
@@ -304,13 +300,12 @@ const fp = flatpickr("#input-date", {
     countElement.style.backgroundColor = "white";
     nextButton.disabled = false;
     nextButton.style.opacity = 1;
-
+    nextButton.style.pointerEvents = "auto";
     enableDurationDays();
     checks.forEach((check) => {
       check.removeAttribute("disabled");
     });
   },
 });
-
 
 //--------------- Tab 3 fill  ----------------------- //
