@@ -356,8 +356,7 @@ nextButton.addEventListener("click", (event) => {
 
   console.log("pickup date is " + inputDate.value);
   console.log("pickup time is " + finaleTime.textContent);
-  console.log("Duration is " + DurationCollected.textContent);
+  console.log("Duration is " + finaleDuration.textContent);
   console.log("Number of bikes "+counterNum.textContent);
   console.log("accessories "+ selectedItems);
-
 });
