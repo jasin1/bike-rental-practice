@@ -126,9 +126,11 @@ bikes.forEach((bike) => {
       `.tab[data-step="${form.currentStep + 1}"]`,
     );
 
-   // gsap.fromTo(currentStep,{opacity: 1, y:0},{opacity:0, y:50, duration:0.5});
-    //gsap.fromTo(nextStep,{opacity: 0, y:50},{opacity:0, y:0, duration:0.5});
+    nextStep.style.opacity = 0;
+    nextStep.style.visibility = "visible";
 
+    gsap.fromTo(currentStep,{opacity: 1, y:0},{opacity:0, y:50, duration:0.5});
+    gsap.fromTo(nextStep,{opacity: 0, y:50},{opacity:0, y:0, duration:0.5});
 
     currentStep.classList.remove("active");
     currentStep.classList.add("hidden");
@@ -201,30 +203,30 @@ function calculateTotalPrice() {
     if (check.checked) {
       totalPrice += Number(check.getAttribute("data-price"));
       // hide and show in tab 3
-      const itemName = check.getAttribute('data-item');
-      const matchingAddon = addonElements.find((addon)=> addon.id === itemName);
-      if(matchingAddon){
-        matchingAddon.style.display = 'block';
-        if(!selectedItems.includes(itemName)){
+      const itemName = check.getAttribute("data-item");
+      const matchingAddon = addonElements.find(
+        (addon) => addon.id === itemName,
+      );
+      if (matchingAddon) {
+        matchingAddon.style.display = "block";
+        if (!selectedItems.includes(itemName)) {
           selectedItems.push(itemName);
-          const itemsText = selectedItems.join(', ');          
+          const itemsText = selectedItems.join(", ");
         }
       }
-
-    } else{
-      const itemName = check.getAttribute('data-item');
-      const matchingAddon = addonElements.find((addon)=> addon.id === itemName);
-      if(matchingAddon){
-        matchingAddon.style.display = 'none';
+    } else {
+      const itemName = check.getAttribute("data-item");
+      const matchingAddon = addonElements.find(
+        (addon) => addon.id === itemName,
+      );
+      if (matchingAddon) {
+        matchingAddon.style.display = "none";
         const index = selectedItems.indexOf(itemName);
-        if(index !== -1){
+        if (index !== -1) {
           selectedItems.splice(index, 1);
         }
       }
-
     }
-
-
   });
 
   totalPrice *= bikeCount;
@@ -345,7 +347,8 @@ nextButton.addEventListener("click", (event) => {
 
   step3Heading.innerHTML = selectedBike.type;
   stepThreeImg.src = selectedBike.imgURL;
-  finaleDuration.textContent = durationDays.options[durationDays.selectedIndex].textContent;
+  finaleDuration.textContent =
+    durationDays.options[durationDays.selectedIndex].textContent;
   finaleBikeAmount.textContent = counterNum.textContent;
   finaleDate.textContent = inputDate.value;
 
@@ -360,7 +363,7 @@ nextButton.addEventListener("click", (event) => {
   console.log("pickup date is " + inputDate.value);
   console.log("pickup time is " + finaleTime.textContent);
   console.log("Duration is " + finaleDuration.textContent);
-  console.log("Number of bikes "+counterNum.textContent);
-  console.log("accessories "+ selectedItems);
-  console.log("finale price is "+ totalPrice2.textContent);
+  console.log("Number of bikes " + counterNum.textContent);
+  console.log("accessories " + selectedItems);
+  console.log("finale price is " + totalPrice2.textContent);
 });
