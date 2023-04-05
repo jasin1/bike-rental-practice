@@ -126,11 +126,12 @@ bikes.forEach((bike) => {
       `.tab[data-step="${form.currentStep + 1}"]`,
     );
 
-    nextStep.style.opacity = 0;
-    nextStep.style.visibility = "visible";
+    const tl = gsap.timeline();
 
-    gsap.fromTo(currentStep,{opacity: 1, y:0},{opacity:0, y:50, duration:0.5});
-    gsap.fromTo(nextStep,{opacity: 0, y:50},{opacity:0, y:0, duration:0.5});
+    tl.to(currentStep, {maxHeight: 0, duration: 0.5})
+      .to(nextStep, {maxHeight: "none", duration: 0.5}, "-=0.5");
+
+
 
     currentStep.classList.remove("active");
     currentStep.classList.add("hidden");
