@@ -65,14 +65,11 @@ const addonBag = document.getElementById("bag");
 const addonElements = [addonHelmet, addonPhone, addonBag];
 
 // ------- finale form collections -------- //
-
 const collectDate = document.getElementById("collect-date");
 const collectTime = document.getElementById("collect-time");
 const collectDays = document.getElementById("collect-days");
 const collectPrice = document.getElementById("collect-price");
 const collectItems = document.getElementById("collect-items");
-
-
 
 //--------------- Bike selection ---------------------//
 
