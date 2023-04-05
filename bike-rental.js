@@ -128,7 +128,7 @@ bikes.forEach((bike) => {
 
     const tl = gsap.timeline();
 
-    tl.fromTo(currentStep, {opacity: 1, height: "auto"}, {opacity: 0, height: 0, duration: 0.5});
+    tl.fromTo(currentStep, {opacity: 1, height: "auto"}, {opacity: 0, height: 0, duration: 0.3});
 
 
     tl.add(()=>{
@@ -141,7 +141,7 @@ bikes.forEach((bike) => {
     form.currentStep++;
     });
 
-    tl.fromTo(nextStep, {opacity: 0, height: 0}, {opacity: 1, height: "auto", duration: 0.5});
+    tl.fromTo(nextStep, {opacity: 0, height: 0}, {opacity: 1, height: "auto", duration: 0.3});
 
   });
 });
@@ -171,7 +171,7 @@ form.prevButtons.forEach((button) => {
 
     form.currentStep--;
     });
-    
+
   });
 });
 
