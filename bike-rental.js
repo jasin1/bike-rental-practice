@@ -126,8 +126,8 @@ bikes.forEach((bike) => {
       `.tab[data-step="${form.currentStep + 1}"]`,
     );
 
-    gsap.fromTo(currentStep,{opacity: 1, y:0},{opacity:0, y:50, duration:0.5});
-    gsap.fromTo(nextStep,{opacity: 0, y:50},{opacity:0, y:0, duration:0.5});
+   // gsap.fromTo(currentStep,{opacity: 1, y:0},{opacity:0, y:50, duration:0.5});
+    //gsap.fromTo(nextStep,{opacity: 0, y:50},{opacity:0, y:0, duration:0.5});
 
 
     currentStep.classList.remove("active");
