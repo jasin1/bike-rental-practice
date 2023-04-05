@@ -128,11 +128,10 @@ bikes.forEach((bike) => {
 
     const tl = gsap.timeline();
 
-    tl.to(currentStep, {maxHeight: 0, duration: 0.5})
-      .to(nextStep, {maxHeight: "none", duration: 0.5}, "-=0.5");
+    tl.fromTo(currentStep, {opacity: 1, height: "auto"}, {opacity: 0, height: 0, duration: 0.5});
 
 
-
+    tl.add(()=>{
     currentStep.classList.remove("active");
     currentStep.classList.add("hidden");
 
@@ -140,8 +139,10 @@ bikes.forEach((bike) => {
     nextStep.classList.add("active");
 
     form.currentStep++;
+    });
 
-    //console.log(selectedBike);
+    tl.fromTo(nextStep, {opacity: 0, height: 0}, {opacity: 1, height: "auto", duration: 0.5});
+
   });
 });
 
@@ -156,6 +157,12 @@ form.prevButtons.forEach((button) => {
       `.tab[data-step="${form.currentStep - 1}"]`,
     );
 
+    const timeline = gsap.timeline();
+
+    timeline.fromTo(currentStep, { height: 'auto', opacity: 1 }, { height: 0, opacity: 0 });
+    timeline.fromTo(nextStep, { height: 0, opacity: 0 }, { height: 'auto', opacity: 1 });
+
+    timeline.add(() => {
     currentStep.classList.remove("active");
     currentStep.classList.add("hidden");
 
@@ -163,6 +170,8 @@ form.prevButtons.forEach((button) => {
     nextStep.classList.add("active");
 
     form.currentStep--;
+    });
+    
   });
 });
 
