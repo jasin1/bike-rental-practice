@@ -366,3 +366,5 @@ nextButton.addEventListener("click", (event) => {
   console.log("accessories " + selectedItems);
   console.log("finale price is " + totalPrice2.textContent);
 });
+
+// Just a test
