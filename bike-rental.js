@@ -129,6 +129,7 @@ bikes.forEach((bike) => {
     stepTwoImg.src = selectedBike.imgURL;
     totalPrice1.innerHTML = selectedBike.priceOneDay;
     totalPrice2.innerHTML = selectedBike.priceOneDay;
+    collectPrice.value = selectedBike.priceOneDay;
 
     const currentStep = document.querySelector(".tab.active");
     const nextStep = document.querySelector(
@@ -233,6 +234,8 @@ function calculateTotalPrice() {
   totalPrice *= bikeCount;
   totalPrice1.innerHTML = totalPrice;
   totalPrice2.innerHTML = totalPrice1.innerHTML;
+  collectPrice.value = totalPrice1.innerHTML;
+  
 }
 
 durationDays.addEventListener("change", calculateTotalPrice);
@@ -340,6 +343,7 @@ const fp = flatpickr("#input-date", {
 durationDays.addEventListener("change", function () {
   const selectedOptionText = durationDays.options[durationDays.selectedIndex];
   finaleDuration.textContent = selectedOptionText;
+  collectDays.value = selectedOptionText;
 });
 
 nextButton.addEventListener("click", (event) => {
@@ -352,8 +356,9 @@ nextButton.addEventListener("click", (event) => {
 
   step3Heading.innerHTML = selectedBike.type;
   stepThreeImg.src = selectedBike.imgURL;
-  finaleDuration.textContent =
-    durationDays.options[durationDays.selectedIndex].textContent;
+  finaleDuration.textContent = durationDays.options[durationDays.selectedIndex].textContent;
+  collectDays.value = durationDays.options[durationDays.selectedIndex].textContent;
+  
   finaleBikeAmount.textContent = counterNum.textContent;
   finaleDate.textContent = inputDate.value;
 
