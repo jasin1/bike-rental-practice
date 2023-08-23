@@ -70,6 +70,7 @@ const collectTime = document.getElementById("collect-time");
 const collectDays = document.getElementById("collect-days");
 const collectPrice = document.getElementById("collect-price");
 const collectItems = document.getElementById("collect-items");
+const finaleBike = document.getElementById("selected-bike-2");
 
 // collectTime.value = "change this!"
 
@@ -130,6 +131,7 @@ bikes.forEach((bike) => {
     totalPrice1.innerHTML = selectedBike.priceOneDay;
     totalPrice2.innerHTML = selectedBike.priceOneDay;
     collectPrice.value = selectedBike.priceOneDay;
+    finaleBike.value = selectedBike.type;
 
     const currentStep = document.querySelector(".tab.active");
     const nextStep = document.querySelector(
@@ -214,6 +216,7 @@ function calculateTotalPrice() {
         if (!selectedItems.includes(itemName)) {
           selectedItems.push(itemName);
           const itemsText = selectedItems.join(", ");
+          collectItems.value = itemsText.toString;
         }
       }
     } else {
