@@ -287,6 +287,8 @@ function populateTimeSlots(select, times) {
 
 inputTime.addEventListener("change", () => {
   finaleTime.textContent = inputTime.value;
+  collectTime.textContent = inputTime.value;
+
 });
 
 //------------ flatpickr -------//
