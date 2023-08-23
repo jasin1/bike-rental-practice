@@ -287,7 +287,7 @@ function populateTimeSlots(select, times) {
 
 inputTime.addEventListener("change", () => {
   finaleTime.textContent = inputTime.value;
-  collectTime.textContent = inputTime.value;
+  collectTime.value= inputTime.value;
 
 });
 
@@ -314,7 +314,7 @@ const fp = flatpickr("#input-date", {
     populateTimeSlots(inputTime, times);
 
     finaleTime.textContent = inputTime.value;
-    collectTime.textContent = inputTime.value;
+    collectTime.value = inputTime.value;
 
     //enabling  inputTime checks durationDays and bike amount
     counterMin.style.pointerEvents = "auto";
