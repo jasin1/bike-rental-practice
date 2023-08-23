@@ -216,7 +216,8 @@ function calculateTotalPrice() {
         if (!selectedItems.includes(itemName)) {
           selectedItems.push(itemName);
           const itemsText = selectedItems.join(", ");
-          collectItems.value = itemsText.toString;
+          collectItems.value = itemsText;
+          console.log(itemsText);
         }
       }
     } else {
