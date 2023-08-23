@@ -365,6 +365,7 @@ nextButton.addEventListener("click", (event) => {
   
   finaleBikeAmount.textContent = counterNum.textContent;
   finaleDate.textContent = inputDate.value;
+  collectDate.value = inputDate.value;
 
   currentStep.classList.remove("active");
   currentStep.classList.add("hidden");
