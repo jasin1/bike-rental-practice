@@ -71,7 +71,7 @@ const collectDays = document.getElementById("collect-days");
 const collectPrice = document.getElementById("collect-price");
 const collectItems = document.getElementById("collect-items");
 
-collectTime.innerText = "ready";
+collectTime.value = "change this!"
 
 //--------------- Bike selection ---------------------//
 
