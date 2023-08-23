@@ -72,7 +72,8 @@ const collectPrice = document.getElementById("collect-price");
 const collectItems = document.getElementById("collect-items");
 const finaleBike = document.getElementById("selected-bike-2");
 
-// collectTime.value = "change this!"
+//------ UUID ------------------ // 
+const generatedID = document.getElementById("generated-uuid");
 
 //--------------- Bike selection ---------------------//
 
