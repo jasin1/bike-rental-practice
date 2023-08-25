@@ -400,7 +400,7 @@ nextButton.addEventListener("click", (event) => {
   console.log("finale price is " + totalPrice2.textContent);
 
   console.log("generated UUID" + uniqueUuid);
-  generateUuid.value = uniqueUuid;
+  generatedID.value = uniqueUuid;
 });
 
 // Just a test
