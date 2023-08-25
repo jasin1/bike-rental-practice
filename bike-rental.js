@@ -71,6 +71,7 @@ const collectDays = document.getElementById("collect-days");
 const collectPrice = document.getElementById("collect-price");
 const collectItems = document.getElementById("collect-items");
 const finaleBike = document.getElementById("selected-bike-2");
+const collectBikeAmount = document.getElementById("collect-bike-amount");
 
 //------ UUID ------------------ // 
 const generatedID = document.getElementById("generated-uuid");
@@ -387,5 +388,5 @@ nextButton.addEventListener("click", (event) => {
 // Just a test
 
 
-// make.com automation for canceling 
+//-------------- make.com automation for canceling -------------------- //
 // make.com webhook url: https://hook.eu1.make.com/y6xh33hoogwmws2lkqsow7pfgdc8gzvh
