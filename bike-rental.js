@@ -344,6 +344,20 @@ const fp = flatpickr("#input-date", {
   },
 });
 
+//-------------- make.com automation for canceling -------------------- //
+// make.com webhook url: https://hook.eu1.make.com/y6xh33hoogwmws2lkqsow7pfgdc8gzvh
+
+function generateUuid() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    const r = Math.random() * 16 | 0;
+    const v = c === 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
+}
+
+const uniqueUuid = generateUuid();
+
+
 //--------------- Tab 3 fill  ----------------------- //
 
 durationDays.addEventListener("change", function () {
@@ -384,10 +398,9 @@ nextButton.addEventListener("click", (event) => {
   console.log("Number of bikes " + counterNum.textContent);
   console.log("accessories " + selectedItems);
   console.log("finale price is " + totalPrice2.textContent);
+
+  console.log("generated UUID" + uniqueUuid);
 });
 
 // Just a test
 
-
-//-------------- make.com automation for canceling -------------------- //
-// make.com webhook url: https://hook.eu1.make.com/y6xh33hoogwmws2lkqsow7pfgdc8gzvh
