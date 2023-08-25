@@ -385,3 +385,7 @@ nextButton.addEventListener("click", (event) => {
 });
 
 // Just a test
+
+
+// make.com automation for canceling 
+// make.com webhook url: https://hook.eu1.make.com/y6xh33hoogwmws2lkqsow7pfgdc8gzvh
