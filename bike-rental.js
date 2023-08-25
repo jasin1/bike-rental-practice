@@ -366,6 +366,7 @@ nextButton.addEventListener("click", (event) => {
   collectDays.value = durationDays.options[durationDays.selectedIndex].textContent;
   
   finaleBikeAmount.textContent = counterNum.textContent;
+  collectBikeAmount.value = counterNum.textContent;
   finaleDate.textContent = inputDate.value;
   collectDate.value = inputDate.value;
 
